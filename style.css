@@ -1,10 +1,14 @@
-
 .map-container {display: flex;
 gap: 30px;
+width: 100%;
 font-family: 'DM Sans', sans-serif;
 }
 
-.map-col {flex-basis: 50%;
+@media screen and (max-width: 767px){
+  .map-container {flex-direction: column}
+}
+
+.map-col {flex-grow: 1;
     align-content: center;
 }
 
