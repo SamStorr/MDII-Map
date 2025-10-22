@@ -14,7 +14,7 @@ font-family: 'DM Sans', sans-serif;
     overflow-y: scroll;
 }
 
-#map { display: block; width: 100%; height: auto; cursor: grab; aspect-ratio: 1/1;}
+#map { display: block; width: 100%; height: auto; cursor: grab; aspect-ratio: 1/1; max-height: 400px}
     .country { fill: white; stroke: #fff; stroke-width: 0.3px; }
     .highlighted { fill: #067A42; fill-opacity: 0.7;}
     .highlighted.hovered{fill-opacity: 1!important;}
