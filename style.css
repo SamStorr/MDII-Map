@@ -10,6 +10,7 @@ font-family: 'DM Sans', sans-serif;
 
 .map-col {flex-grow: 1;
     align-content: center;
+          max-height: 400px;
 }
 
 #map { display: block; width: 100%; height: auto; cursor: grab; aspect-ratio: 1/1;}
