@@ -10,7 +10,7 @@ font-family: 'DM Sans', sans-serif;
 
 .map-col {flex-grow: 1;
     align-content: center;
-    max-height: 400px;
+    height: 400px;
     overflow-y: scroll;
 }
 
