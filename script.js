@@ -293,7 +293,7 @@ function showCountryProjects(countryName, rawData) {
 
   // Filter projects that include the country
   const countryProjects = rawData.filter(d =>
-    d.Country && d.Country.split(",").map(c => c.trim()).includes(countryName)
+    d.Country && d.Country.split("; ").map(c => c.trim()).includes(countryName)
   );
 
   // Sort by title
