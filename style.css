@@ -53,6 +53,7 @@ html, body {
   padding-top: 10px;
   padding-left: 5px;
   padding-right: 15px;
+  gap: 5px;      
   align-items: center;
   cursor: pointer;
 }
