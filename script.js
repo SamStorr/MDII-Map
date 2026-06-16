@@ -51,7 +51,7 @@ async function loadHighlightedCountries(csvPath) {
   // Load world map and CSV together
   Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
-    loadHighlightedCountries("data.csv")
+    loadHighlightedCountries("consolidated_scores.csv")
   ]).then(([world, highlightedCountriesRaw]) => {
   const usecaseData = highlightedCountriesRaw.__raw; // 👈 we’ll store the raw CSV too
   const highlightedCountries = highlightedCountriesRaw.counts;
@@ -308,8 +308,8 @@ function showCountryProjects(countryName, rawData) {
   } else {
     countryProjects.forEach(proj => {
       const entry = projectList.append("div").attr("class", "project-entry");
-      entry.append("h4").text(proj.Title);
-      entry.append("p").text(proj.Description || "No description provided.");
+      entry.append("h4").text(proj.tool_name);
+      entry.append("p").text(proj.Tool_details || "No description provided.");
     });
   }
 
