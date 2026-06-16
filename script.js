@@ -33,7 +33,7 @@ async function loadHighlightedCountries(csvPath) {
   data.forEach(row => {
     if (!row.Country) return;
 
-    const countries = row.Country.split(",")
+    const countries = row.Country.split("; ")
       .map(c => c.trim())
       .filter(c => c.length > 0);
 
