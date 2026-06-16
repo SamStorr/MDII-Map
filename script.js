@@ -37,6 +37,7 @@ async function loadHighlightedCountries(csvPath) {
       .map(c => c.trim())
       .filter(c => c.length > 0);
 
+
     countries.forEach(country => {
       countryCounts.set(country, (countryCounts.get(country) || 0) + 1);
     });
@@ -53,16 +54,14 @@ async function loadHighlightedCountries(csvPath) {
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
     loadHighlightedCountries("consolidated_scores.csv")
   ]).then(([world, highlightedCountriesRaw]) => {
-  const usecaseData = highlightedCountriesRaw.__raw; // 👈 we’ll store the raw CSV too
+  const usecaseData = highlightedCountriesRaw.__raw; // 
   const highlightedCountries = highlightedCountriesRaw.counts;
     const countries = topojson.feature(world, world.objects.countries).features;
-
     // Create a Set for fast lookup
     const highlightedCountrySet = new Set(highlightedCountries.map(d => d.countryName));
 
 // Center globe on highlighted countries
 const highlightedGeo = countries.filter(d => highlightedCountrySet.has(d.properties.name));
-console.log(highlightedGeo)
 const avgCentroid = (() => {
   const centroids = highlightedGeo.map(d => d3.geoCentroid(d));
   const n = centroids.length;
@@ -84,14 +83,7 @@ redraw()
         .classed("hovered", true);
     }
 
-/*    function handleMouseMove(event) {
-      tooltip
-        .style("left", (event.pageX + 10) + "px")
-        .style("top", (event.pageY - 10) + "px");
-    }*/
-
     function handleMouseOut() {
-      //tooltip.style("opacity", 0);
       spinning = true;
       d3.selectAll(".useCases-bar-row").classed("hovered", false);
     }
@@ -309,7 +301,7 @@ function showCountryProjects(countryName, rawData) {
     countryProjects.forEach(proj => {
       const entry = projectList.append("div").attr("class", "project-entry");
       entry.append("h4").text(proj.tool_name);
-      entry.append("p").text(proj.Tool_details || "No description provided.");
+      entry.append("p").text(proj.tool_details || "No description provided.");
     });
   }
 
